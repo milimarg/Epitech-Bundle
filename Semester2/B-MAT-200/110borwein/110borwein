@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+from parsing import get_parsing
+from midpoint import calc_midpoint
+from trapezoidal import calc_trapezoidal
+from simpson import calc_simpson
+
+n = get_parsing()
+
+start = 0
+end = 5000
+steps = 10000
+shift = end / steps
+
+calc_midpoint(n, start, end, shift)
+calc_trapezoidal(n, start, end, shift)
+calc_simpson(n, start, end, shift)

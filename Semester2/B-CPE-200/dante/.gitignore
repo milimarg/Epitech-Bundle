@@ -1,0 +1,8 @@
+.idea/
+solver/maps/
+solver/solver
+generator/generator
+dantester_solver
+checker
+test*
+*.o

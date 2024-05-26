@@ -95,20 +95,6 @@
     </tr>
     <tr>
       <td rowspan="2">
-        <a href="">B-PRO-100</a>
-      </td>
-      <td rowspan="2">? credits</td>
-      <td>
-        <a href="">Professional e-mail</a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="">Argumentative Mail</a>
-      </td>
-    </tr>
-    <tr>
-      <td rowspan="2">
         <a href="">B-MUL-100</a>
       </td>
       <td rowspan="2">? credits</td>

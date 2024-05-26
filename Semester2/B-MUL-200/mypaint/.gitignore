@@ -1,0 +1,7 @@
+*.o
+*.a
+*.idea
+*.vscode
+my_paint
+callgrind*
+vgcore*

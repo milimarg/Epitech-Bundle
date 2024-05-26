@@ -1,0 +1,73 @@
+version: "3"
+
+services:
+    db:
+        image: postgres:latest
+        environment:
+            - POSTGRES_USERNAME=postgres
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_DB=postgres
+            - WORKER_HOSTNAME=worker
+            - RESULT_HOSTNAME=result
+        volumes:
+            - ./schema.sql:/docker-entrypoint.initdb.d/schema.sql
+            - db-data:/var/lib/postgresql/data
+        networks:
+            - result-tier
+            - back-tier
+        ports:
+            - "5432:5432"
+        restart: on-failure
+    redis:
+        image: redis:latest
+        networks:
+            - poll-tier
+            - back-tier
+        ports:
+            - "6379:6379"
+        restart: on-failure
+    poll:
+        build:
+            context: ./poll
+            dockerfile: Dockerfile
+        environment:
+            - REDIS_HOSTNAME=redis
+        networks:
+            - poll-tier
+        ports:
+            - "5000:80"
+        depends_on:
+            - db
+        restart: on-failure
+    worker:
+        build:
+            context: ./worker
+            dockerfile: Dockerfile
+        environment:
+            - DB_HOSTNAME=db
+            - REDIS_HOSTNAME=redis
+        networks:
+            - back-tier
+        restart: on-failure
+    result:
+        build:
+            context: ./result
+            dockerfile: Dockerfile
+        environment:
+            - DB_HOSTNAME=db
+        networks:
+            - result-tier
+        ports:
+            - "5001:80"
+        depends_on:
+            - db
+        restart: on-failure
+volumes:
+    db-data:
+networks:
+    poll-tier:
+        driver: bridge
+    result-tier:
+        driver: bridge
+    back-tier:
+        driver: bridge

@@ -1,0 +1,13 @@
+anthill*
+gmin.pl
+.vscode
+.idea
+*.o
+*.a
+lem_in
+*.txt
+input
+a
+b
+tester
+coding-style-reports.log

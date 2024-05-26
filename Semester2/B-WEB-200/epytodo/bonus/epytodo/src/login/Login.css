@@ -1,0 +1,44 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.title {
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.field {
+    padding: 8px 0;
+    font-size: 12px;
+    text-align: left;
+}
+
+input {
+    border-radius: 4px;
+    width: 200px;
+    border: solid 1px #eaecf9;
+    padding: 4px;
+}
+
+input[type="text"] {
+    background-color: #f7f7f4;
+}
+
+input[type="submit"] {
+    background-color: #fffefc;
+    width: 210px;
+}
+
+.link {
+    font-size: 12px;
+    text-decoration: none;
+    color: grey;
+}
+
+.link:hover {
+    color: darkgrey;
+}

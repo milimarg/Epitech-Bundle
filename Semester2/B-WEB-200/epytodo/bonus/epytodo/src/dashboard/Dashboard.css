@@ -1,0 +1,19 @@
+.dashboard-wrapper {
+
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    margin: 24px 25%;
+}
+
+.nav span {
+    transition: 250ms linear;
+    font-size: 20px;
+}
+
+.nav span:hover {
+    transition: 250ms linear;
+    transform: scale(1.05);
+}

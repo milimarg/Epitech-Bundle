@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+#
+# EPITECH PROJECT, 2023
+# B-MAT-200-STG-2-1-108trigo-florent.guittre
+# File description:
+# main.py
+#
+
+from math import sqrt
+from parsing import get_parsing
+from matrices import display_matrix, create_identity_matrix, create_a_matrix
+from taylor import calc_exp, calc_cos, calc_sin
+
+tolerance = 0.000001
+funcs_arg = ["EXP", "COS", "SIN", "COSH", "SINH"]
+funcs = [calc_exp, calc_cos, calc_sin, calc_cos, calc_sin]
+
+argv, items_nb = get_parsing(funcs_arg)
+
+matrix_size = int(sqrt(items_nb))
+i = create_identity_matrix(matrix_size)
+a = create_a_matrix(matrix_size, argv[2:])
+func_idx = funcs_arg.index(argv[1])
+is_h = 1 if func_idx > 2 else 0
+display_matrix(funcs[func_idx](a, i, is_h, tolerance))

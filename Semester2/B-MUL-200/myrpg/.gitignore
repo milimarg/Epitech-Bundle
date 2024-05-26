@@ -1,0 +1,17 @@
+build
+.vscode
+.idea
+*.o
+libmy.a
+/my_rpg
+vgcore*
+callgrind*
+*.a
+coding-style-reports.log
+/assets/test
+*.kra
+*~
+rpg
+dantexture
+nomdebinaire
+save/*.rpgs

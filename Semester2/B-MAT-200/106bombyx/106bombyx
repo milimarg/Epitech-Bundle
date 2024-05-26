@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+#
+# EPITECH PROJECT, 2023
+# B-MAT-200-STG-2-1-106bombyx-florent.guittre
+# File description:
+# main.py
+#
+
+from parsing import get_parsing
+from generation import generation_mode_0, generation_mode_1
+
+mode_nb, n, value = get_parsing()
+if mode_nb:
+    generation_mode_0(n, value)
+else:
+    generation_mode_1(n, value[0], value[1])

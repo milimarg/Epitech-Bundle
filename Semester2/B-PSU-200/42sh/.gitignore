@@ -1,0 +1,11 @@
+*.a
+vgcore*
+.vscode
+mysh
+42sh
+*.o
+*~
+coding*
+test*
+.idea/
+

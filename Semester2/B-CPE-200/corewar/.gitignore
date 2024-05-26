@@ -1,0 +1,11 @@
+.idea/
+*.o
+*.a
+asm/asm
+corewar/corewar
+*.s
+*.cor
+Players
+*.log
+corewar_binaries
+bonus

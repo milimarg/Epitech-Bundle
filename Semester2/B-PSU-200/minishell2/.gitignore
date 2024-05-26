@@ -1,0 +1,11 @@
+*.o
+*.a
+*.so
+tester.sh
+tests.sample
+tests_dir_minishell1/
+mysh
+.idea
+tests
+my_divzero
+vgcore.*
