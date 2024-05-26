@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+
+##
+## EPITECH PROJECT, 2022
+## 102architect
+## File description:
+## 102architect
+##
+
+import sys
+import parsing
+import move_calc_manager
+
+argc = len(sys.argv)
+argv = sys.argv
+args_list = ["-t", "-z", "-r", "-s"]
+args_arg_nb = [2, 2, 1, 1]
+matrix = [1, 0, 0, 0, 1, 0, 0, 0, 1]
+result, tx, ty = 0, 0, 0
+
+if (argc < 5):
+    sys.exit(84)
+parsing.check_number_of_arguments(argc, argv, args_list, args_arg_nb)
+
+x, y = parsing.check_if_number_coordinate(argv[1], argv[2])
+
+for i in range(argc):
+    element = argv[i]
+    if (element == "-t" or element == "-z"):
+        if (argc < 6):
+            sys.exit(84)
+        tx, ty = parsing.check_if_number_coordinate(argv[i + 1], argv[i + 2])
+        x, y = move_calc_manager.x_y_calculation(x, y, tx, ty, element, matrix)
+    if (element == "-r" or element == "-s"):
+        if (argc < 5):
+            sys.exit(84)
+        angle = parsing.check_if_number_angle(argv[i + 1])
+        x, y = move_calc_manager.angle_calculation(x, y, angle, element, matrix)

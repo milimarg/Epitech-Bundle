@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+
+##
+## EPITECH PROJECT, 2022
+## 101pong
+## File description:
+## 101pong.py
+##
+
+from math import sqrt, acos, pi
+import sys
+
+def calc_velocity(x0, y0, z0, x1, y1, z1):
+    x = x1 - x0
+    y = y1 - y0
+    z = z1 - z0
+    return x, y, z
+
+def calc_coordinates(x0, y0, z0, x, y, z, n):
+    x = (x * n) + x0 + x
+    y = (y * n) + y0 + y
+    z = (z * n) + z0 + z
+    return x, y, z
+
+def check_intersection(x0, y0, x1, y1):
+    if (x1 < 0 and x0 > 0):
+        return 1
+    elif (x1 > 0 and x0 < 0):
+        return 1
+    else:
+        return 0
+
+def calc_scalar_product(x0, y0, z0, x1, y1, z1):
+    x, y, z = calc_velocity(x0, y0, z0, x1, y1, z1)
+    return x * 0 + y * 0 + z * 1
+
+def calc_norm(x, y, z):
+    return sqrt(x ** 2 + y ** 2 + z ** 2)
+
+def calc_angle(x0, y0, z0, x1, y1, z1):
+    scal_product = abs(calc_scalar_product(x0, y0, z0, x1, y1, z1))
+    x, y, z = calc_velocity(x0, y0, z0, x1, y1, z1)
+    norm_product = abs(calc_norm(x, y, z) * calc_norm(0, 0, 1))
+    return 90 - ((acos(scal_product / norm_product) * 180) / pi)
+
+i = 0
+len_argv = len(sys.argv)
+if (len_argv < 8 or len_argv > 8):
+    sys.exit(84)
+
+try:
+    x0 = float(sys.argv[1])
+    y0 = float(sys.argv[2])
+    z0 = float(sys.argv[3])
+    x1 = float(sys.argv[4])
+    y1 = float(sys.argv[5])
+    z1 = float(sys.argv[6])
+    n = int(sys.argv[7])
+except:
+    sys.exit(84)
+
+if (n < 0 or type(n) == float):
+    sys.exit(84)
+
+x, y, z = calc_velocity(x0, y0, z0, x1, y1, z1)
+print("The velocity vector of the ball is:")
+print(f"({x:.2f}, {y:.2f}, {z:.2f})")
+print(f"At time t + {n}, ball coordinates will be:")
+x, y, z = calc_coordinates(x0, y0, z0, x, y, z, n)
+print(f"({x:.2f}, {y:.2f}, {z:.2f})")
+if (check_intersection(x0, y0, x1, y1) and ((z1 - z0) != 0 and (z0 != 0 or z1 != 0))):
+    print("The incidence angle is:")
+    o = calc_angle(x0, y0, z0, x1, y1, z1)
+    if (o < 0 and o > 90):
+        sys.exit(84)
+    print(f"{o:.2f} degrees")
+else:
+    print("The ball won't reach the paddle.")

@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+##
+## EPITECH PROJECT, 2022
+## B-MAT-100-STG-1-1-104intersection-florent.guittre
+## File description:
+## 104intersection
+##
+
+import parsing, display, intersection, display, calculus
+
+opt, xp, yp, zp, xv, yv, zv, p = parsing.get_args()
+
+display.object(opt, p)
+display.description(xp, yp, zp, xv, yv, zv)
+
+if (opt == 1):
+    a, b, c = intersection.calc_sphere(xp, yp, zp, xv, yv, zv, p)
+if (opt == 2):
+    a, b, c = intersection.calc_cylinder(xp, yp, xv, yv, p)
+if (opt == 3):
+    a, b, c = intersection.calc_cone(xp, yp, zp, xv, yv, zv, p)
+
+x1, x2 = calculus.resolve(a, b, c)
+
+if (x1 != "nosol" and x2 != "nosol"):
+    display.nb_intersection_found(2)
+    x, y, z = intersection.get_point(xp, yp, zp, xv, yv, zv, x1)
+    display.intersection_coordinate(x, y, z)
+    x, y, z = intersection.get_point(xp, yp, zp, xv, yv, zv, x2)
+    display.intersection_coordinate(x, y, z)
+if (x1 != "nosol" and x2 == "nosol"):
+    display.nb_intersection_found(1)
+    x, y, z = intersection.get_point(xp, yp, zp, xv, yv, zv, x1)
+    display.intersection_coordinate(x, y, z)
+if (x1 == "nosol" and x2 == "nosol"):
+    display.nb_intersection_found(0)
+if (x1 == "nosol" and x2 == "infinity"):
+    display.nb_intersection_found(-1)

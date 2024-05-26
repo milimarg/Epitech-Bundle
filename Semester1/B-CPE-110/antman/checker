@@ -1,0 +1,29 @@
+#!/bin/bash
+
+RED="\e[1;31m"
+GREEN="\e[1;32m"
+RESET="\e[0m"
+
+for file in "./tests/originals"/*; do
+    if [ -f "$file" ]; then
+        basename=`basename $file`
+        if [[ "$basename" == *.lyr ]]; then
+            category=1
+        elif [[ "$basename" == *.html ]]; then
+            category=2
+        elif [[ "$basename" == *.ppm ]]; then
+            category=3
+        fi
+        ./antman/antman "$file" "$category" > "./tests/compressed/$basename"
+        ./giantman/giantman "./tests/compressed/$basename" "$category" > "./tests/uncompressed/$basename"
+        cmp -s "./tests/originals/$basename" "./tests/uncompressed/$basename"
+        if [ $? -eq 0 ]; then
+            original_size=$(stat -c %s "./tests/originals/$basename")
+            compressed_size=$(stat -c %s "./tests/compressed/$basename")
+            reduction=$(echo "print(f'{100-($compressed_size/$original_size*100):.2f}')" | python3)
+            echo -e "$GREEN$basename$RESET => reduced by $reduction%"
+        else
+            echo -e "$RED$basename$RESET"
+        fi
+    fi
+done

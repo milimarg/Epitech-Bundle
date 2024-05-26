@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+##
+## EPITECH PROJECT, 2023
+## B-MAT-100-STG-1-1-105torus-florent.guittre
+## File description:
+## 105torus
+##
+
+import parsing, bisection, newton, secant
+
+opt, a0, a1, a2, a3, a4, n = parsing.get_args()
+
+if (opt == 1):
+    bisection.run_bisection(n, a0, a1, a2, a3, a4)
+if (opt == 2):
+    newton.run_newton(n, a0, a1, a2, a3, a4)
+if (opt == 3):
+    secant.run_secant(n, a0, a1, a2, a3, a4)
