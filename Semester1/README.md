@@ -14,7 +14,7 @@
       <td rowspan="5">
         <a href="">B-CPE-100</a>
       </td>
-      <td rowspan="5">? credits</td>
+      <td rowspan="5">4 credits</td>
       <td>
         <a href="">Pool</a>
       </td>
@@ -49,7 +49,7 @@
       <td rowspan="2">
         <a href="">B-CPE-101</a>
       </td>
-      <td rowspan="2">? credits</td>
+      <td rowspan="2">3 credits</td>
       <td>
         <a href="">Miniprintf</a>
       </td>
@@ -69,7 +69,7 @@
       <td rowspan="3">
         <a href="">B-CPE-110</a>
       </td>
-      <td rowspan="3">? credits</td>
+      <td rowspan="3">5 credits</td>
       <td>
         <a href="">BSQ</a>
       </td>
@@ -97,7 +97,7 @@
       <td rowspan="2">
         <a href="">B-MUL-100</a>
       </td>
-      <td rowspan="2">? credits</td>
+      <td rowspan="2">5 credits</td>
       <td>
         <a href="">MyHunter</a>
       </td>
@@ -117,7 +117,7 @@
       <td rowspan="3">
         <a href="">B-PSU-100</a>
       </td>
-      <td rowspan="3">? credits</td>
+      <td rowspan="3">5 credits</td>
       <td>
         <a href="">my_ls</a>
       </td>
@@ -145,7 +145,7 @@
       <td rowspan="5">
         <a href="">B-MAT-100</a>
       </td>
-      <td rowspan="5">? credits</td>
+      <td rowspan="5">2 credits</td>
       <td>
         <a href="">101pong</a>
       </td>
@@ -189,7 +189,7 @@
       <td rowspan="1">
         <a href="">B-NSA-100</a>
       </td>
-      <td rowspan="1">? credits</td>
+      <td rowspan="1">2 credits</td>
       <td>
         <a href="">My_web</a>
       </td>

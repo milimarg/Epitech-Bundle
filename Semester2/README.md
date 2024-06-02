@@ -14,7 +14,7 @@
       <td rowspan="3">
         <a href="">B-CPE-200</a>
       </td>
-      <td rowspan="3">? credits</td>
+      <td rowspan="3">9 credits</td>
       <td>
         <a href="">Dante</a>
       </td>
@@ -42,7 +42,7 @@
       <td rowspan="2">
         <a href="">B-MUL-200</a>
       </td>
-      <td rowspan="2">? credits</td>
+      <td rowspan="2">6 credits</td>
       <td>
         <a href="">MyPaint</a>
       </td>
@@ -62,7 +62,7 @@
       <td rowspan="3">
         <a href="">B-PSU-200</a>
       </td>
-      <td rowspan="3">? credits</td>
+      <td rowspan="3">9 credits</td>
       <td>
         <a href="">minishell1</a>
       </td>
@@ -90,7 +90,7 @@
       <td rowspan="5">
         <a href="">B-MAT-200</a>
       </td>
-      <td rowspan="5">? credits</td>
+      <td rowspan="5">2 credits</td>
       <td>
         <a href="">106bombyx</a>
       </td>
@@ -134,7 +134,7 @@
       <td rowspan="1">
         <a href="">B-AIA-200</a>
       </td>
-      <td rowspan="1">? credits</td>
+      <td rowspan="1">3 credits</td>
       <td>
         <a href="">Need4Stek</a>
       </td>
@@ -146,7 +146,7 @@
       <td rowspan="1">
         <a href="">B-WEB-200</a>
       </td>
-      <td rowspan="1">? credits</td>
+      <td rowspan="1">2 credits</td>
       <td>
         <a href="">EPyTodo</a>
       </td>
@@ -158,7 +158,7 @@
       <td rowspan="2">
         <a href="">B-DOP-200</a>
       </td>
-      <td rowspan="2">? credits</td>
+      <td rowspan="2">2 credits</td>
       <td>
         <a href="">Popeye</a>
       </td>

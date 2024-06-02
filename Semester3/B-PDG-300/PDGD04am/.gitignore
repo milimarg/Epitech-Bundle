@@ -1,0 +1,10 @@
+*.o
+z
+*.out
+main.c
+unit_tests
+.idea
+*.gcda
+*.gcno
+*.html
+*.css

@@ -1,0 +1,12 @@
+Z
+*.o
+.idea
+*.out
+*.html
+*.css
+*.gcda
+*.gcno
+tests/main.cpp
+unit_tests
+*.drink
+ex06*

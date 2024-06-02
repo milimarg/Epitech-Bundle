@@ -1,0 +1,10 @@
+.idea
+a.out
+*.o
+*.gcda
+*.gcno
+*.html
+*.css
+unit_tests
+ex*.c
+.vscode

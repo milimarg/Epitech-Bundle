@@ -1,0 +1,9 @@
+*.out
+*.a
+*.o
+.idea
+*.html
+*.css
+unit_tests
+*.gcda
+*.gcno
