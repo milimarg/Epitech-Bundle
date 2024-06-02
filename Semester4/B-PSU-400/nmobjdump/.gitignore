@@ -1,0 +1,9 @@
+.idea
+help
+*.log
+my_nm
+my_objdump
+*.o
+.*.swp
+*.a
+tests

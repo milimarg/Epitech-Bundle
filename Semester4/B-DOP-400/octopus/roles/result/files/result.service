@@ -1,0 +1,9 @@
+[Unit]
+Description=Result
+
+[Service]
+User=admin
+WorkingDirectory=/opt/result
+ExecStart=sudo /opt/result/run.sh
+Restart=always
+EnvironmentFile="/opt/result/.env.result"

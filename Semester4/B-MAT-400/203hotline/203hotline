@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+from math import comb
+from parsing import parsing
+from distribution import distribution
+from time import time
+
+
+def main():
+    time1 = time()
+    ret, argc = parsing()
+    if argc == 2:
+        distribution(ret[0], time1, False)
+        print()
+        distribution(ret[0], time1, True)
+    else:
+        print(f"{ret[1]}-combinations of a set of size {ret[0]}:\n{comb(ret[0], ret[1])}")
+
+
+try:
+    main()
+except:
+    exit(84)

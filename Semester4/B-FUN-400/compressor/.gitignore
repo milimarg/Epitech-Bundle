@@ -1,0 +1,13 @@
+.stack-work/
+*~
+*.lock
+.vscode
+.idea
+*.log
+imageCompressor
+tests
+*.prof*
+dist-newstyle
+*.sh
+.ic*
+*.jpg

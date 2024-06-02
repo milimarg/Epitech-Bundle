@@ -1,0 +1,43 @@
+- name: "Install PostgreSQL"
+  apt:
+    name: postgresql, postgresql-client, python3-psycopg2
+    state: present
+
+- name: "Copy pg_hba config file"
+  copy:
+    src: ../files/pg_hba.conf
+    dest: /etc/postgresql/15/main
+    owner: postgres
+    group: postgres
+    mode: 0640
+
+- name: "Copy schema"
+  copy:
+    src: ../files/schema.sql
+    dest: /etc/postgresql/15/main
+    owner: postgres
+    group: postgres
+    mode: 0644
+
+- name: "Create database"
+  postgresql_db:
+    name: paul
+    state: present
+
+- name: "Create a user with password and limited permissions"
+  become: yes
+  postgresql_user:
+    db: "{{ postgresql_db }}"
+    name: "{{ postgresql_db_user }}"
+    password: "{{ postgresql_db_pass }}"
+    encrypted: yes
+    role_attr_flags: LOGIN,NOSUPERUSER,NOCREATEDB,NOCREATEROLE
+    state: present
+
+- name: "Run database"
+  shell: psql -U paul -d paul -a -f /etc/postgresql/15/main/schema.sql
+
+- name: "Restart PostgreSQL"
+  systemd:
+    name: postgresql
+    state: reloaded

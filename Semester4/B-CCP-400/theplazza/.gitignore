@@ -1,0 +1,10 @@
+.idea
+.vscode
+vgcore*
+*.out
+*.o
+*.so
+*.log
+*.txt
+plazza
+build

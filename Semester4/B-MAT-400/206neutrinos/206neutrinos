@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+
+from parsing import get_parsing
+from calculus import (calculate_deviation,
+                      calculate_arithmetic,
+                      calculate_root_mean_square,
+                      calculate_harmonic_mean)
+
+
+def run(n, sd, h, dev_result, dev_backup, gloubal, a, input_, gloubal_backup, gloubal_backup_backup_backup, loop=True):
+    n += 1
+    dev_backup, dev_result = calculate_deviation(sd, a, n, input_, dev_result, gloubal, loop)
+    gloubal, gloubal_backup = calculate_arithmetic(gloubal, a, n, input_, loop)
+    root_mean_square = calculate_root_mean_square(dev_backup, gloubal_backup, n, input_, a, sd, loop)
+    harmonic_mean, gloubal_backup_backup_backup = calculate_harmonic_mean(h, n, input_, gloubal_backup_backup_backup, loop)
+    return n, dev_result, dev_backup, gloubal, gloubal_backup, gloubal_backup_backup_backup, root_mean_square, harmonic_mean
+
+
+def main():
+    parsing = get_parsing()
+
+    n = int(parsing[1])  # number of values
+    a = parsing[2]  # arithmetic mean
+    h = parsing[3]  # harmonic mean
+    sd = parsing[4]  # standard deviation
+
+    found_msg = False
+    msg = input("Enter next value: ")
+
+    while not found_msg:
+        try:
+            if msg != "END":
+                input_ = int(msg)
+                if input_ <= 0:
+                    raise ValueError("value error")
+                found_msg = True
+            else:
+                exit(0)
+        except:
+            print("Bad input... retry")
+            msg = input("Enter next value: ")
+            continue
+
+
+    gloubal = 0
+    gloubal_backup = 0
+    gloubal_backup_backup = 0
+    gloubal_backup_backup_backup = 0
+    dev_result = 0
+    dev_backup = 0
+    root_mean_square = 0
+    harmonic_mean = 0
+
+    can_print = True
+
+    n, dev_result, dev_backup, gloubal, gloubal_backup, gloubal_backup_backup_backup, root_mean_square, harmonic_mean = run(
+        n, sd, h, dev_result, dev_backup, gloubal, a, input_, gloubal_backup, gloubal_backup_backup_backup, False)
+
+    while msg != "END":
+        if can_print:
+            print(f"    Number of values:   {n}")
+            print(f"    Standard deviation: {dev_result:.2f}")
+            print(f"    Arithmetic mean:    {gloubal:.2f}")
+            print(f"    Root mean square:   {root_mean_square:.2f}")
+            print(f"    Harmonic mean:      {harmonic_mean:.2f}\n")
+        msg = input("Enter next value: ")
+        if msg != "END":
+            try:
+                input_ = int(msg)
+                if input_ <= 0:
+                    raise ValueError("value error")
+            except:
+                if can_print:
+                    can_print = False
+                print("Bad input... retry")
+                continue
+        if not can_print:
+            can_print = True
+        n, dev_result, dev_backup, gloubal, gloubal_backup, gloubal_backup_backup_backup, root_mean_square, harmonic_mean = run(
+            n, sd, h, dev_result, dev_backup, gloubal, a, input_, gloubal_backup, gloubal_backup_backup_backup)
+
+
+try:
+    main()
+except:
+    exit(84)

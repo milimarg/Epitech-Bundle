@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+from parsing import parse
+from display import display_indices, display_result, display_theoretical
+from distribution import display_distribution
+from distribution_table import distribution_table, display_fit_validity
+from copy import deepcopy
+
+parsing = parse()
+
+samples = 100
+acc = 0
+max_items = 10
+forbidden_number = -42000000000
+observed = deepcopy(parsing)
+theoretical = []
+
+for i in range(len(parsing)):
+    acc += i * parsing[i]
+acc /= pow(samples, 2)
+
+columns_number = display_indices(parsing, max_items, observed, forbidden_number)
+
+observed = [o for o in observed if o != forbidden_number]
+
+if columns_number == len(observed) - 1:
+    observed[-1] = parsing[-1] + parsing[-2]
+    observed.remove(observed[-2])
+
+display_result(parsing, columns_number, max_items, samples)
+chi = display_theoretical(parsing, samples, acc, theoretical, max_items)
+display_distribution(samples, acc)
+print(f"Chi-squared:\t\t{chi:.3f}")
+freedom = columns_number - 2
+print(f"Degrees of freedom:\t{freedom}")
+display_fit_validity(chi, freedom)

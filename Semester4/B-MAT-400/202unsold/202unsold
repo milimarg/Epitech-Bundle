@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+import math
+
+from parsing import parser
+from formula import calculate_formula
+from print import print_divider
+
+a, b = parser()
+z_values = [z for z in range(20, 101, 10)]
+
+print_divider()
+
+step = 10
+last = 50
+array = []
+child = []
+x_law = 0
+y_law = 0
+
+marginalX = []
+marginalY = []
+
+print("\t", end='')
+for i in range(step, last + step, step):
+    print(f"X={i}", end='\t')
+print("Y law")
+
+for y in range(step, last + step, step):
+    print(f"Y={y}", end='\t')
+    child = []
+    for x in range(step, last + step, step):
+        result = calculate_formula(a, b, x, y)
+        print(f"{result:.3f}", end='\t')
+        child.append(result)
+    array.append(child.copy())
+    marginalX.append(sum(array[len(array) - 1]))
+    print(f"{marginalX[-1]:.3f}")
+print("X law", end='\t')
+
+for j in range(len(array)):
+    column = [array[i][j] for i in range(len(array[j]))]
+    marginalY.append(sum(column))
+    print(f"{marginalY[-1]:.3f}", end='\t')
+print(f"{sum([sum(line) for line in array]):.3f}")
+
+print_divider()
+
+print("z\t", end='')
+for z in z_values:
+    print(f"{z}\t", end='')
+print("\np(Z=z)", end='')
+
+z_array = []
+
+for z in range(int(z_values[0] / 10), (int(z_values[-1] / 10)) + 1):
+    result = 0
+    for y in range(1, len(array) + 1):
+        for x in range(1, len(array) + 1):
+            if x + y == z:
+                result += calculate_formula(a, b, x * 10, y * 10)
+    z_array.append(result)
+    print(f"\t{result:.3f}", end='')
+print("")
+
+print_divider()
+
+expectedX = 0
+expectedY = 0
+expectedZ = 0
+varianceX = 0
+varianceY = 0
+varianceZ = 0
+
+for i in range(5):
+    expectedX += (i + 1) * 10 * marginalY[i]
+    expectedY += (i + 1) * 10 * marginalX[i]
+    expectedZ += (i + 2) * 10 * z_array[i]
+for i in range(5):
+    varianceX += ((i + 1) * 10 - expectedY) * ((i + 1) * 10 - expectedY) * marginalX[i]
+    varianceY += ((i + 1) * 10 - expectedX) * ((i + 1) * 10 - expectedX) * marginalY[i]
+    if i < 4:
+        expectedZ += (i + 7) * 10 * z_array[i + 5]
+for i in range(9):
+    varianceZ += ((i + 2) * 10 - expectedZ) * ((i + 2) * 10 - expectedZ) * z_array[i]
+print(f"expected value of X:\t{expectedX:.1f}")
+print(f"variance of X:\t{varianceY:.1f}")
+print(f"expected value of Y:\t{expectedY:.1f}")
+print(f"variance of Y:\t{varianceX:.1f}")
+print(f"expected value of Z:\t{expectedZ:.1f}")
+print(f"variance of Z:\t{varianceZ:.1f}")

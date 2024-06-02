@@ -1,0 +1,15 @@
+*.o
+vgcore.*
+coding-style*
+*.gc*
+unit_tests
+.idea
+.vscode
+*.log
+*.sh
+myteams_server
+myteams_cli
+log_folder
+*.xml
+database/
+*.db

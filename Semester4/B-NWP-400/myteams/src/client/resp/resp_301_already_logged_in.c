@@ -1,0 +1,14 @@
+/*
+** EPITECH PROJECT, 2024
+** B-NWP-400-STG-4-1-myteams-noe.tritsch
+** File description:
+** resp_100_already_logged_in
+*/
+
+#include "client.h"
+
+void resp_301_already_logged_in(client_t *client, char *message)
+{
+    (void)client;
+    (void)message;
+}

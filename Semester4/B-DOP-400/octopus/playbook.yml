@@ -1,0 +1,35 @@
+- name: base
+  hosts: base
+  become: yes
+  roles:
+    - base
+
+- name: redis
+  hosts: redis
+  become: yes
+  roles:
+    - redis
+
+- name: postgresql
+  hosts: postgresql
+  become: yes
+  roles:
+    - postgresql
+
+- name: poll
+  hosts: poll
+  become: yes
+  roles:
+    - poll
+
+- name: worker
+  hosts: worker
+  become: yes
+  roles:
+    - worker
+
+- name: result
+  hosts: result
+  become: yes
+  roles:
+    - result

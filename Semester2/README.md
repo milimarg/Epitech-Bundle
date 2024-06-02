@@ -47,7 +47,7 @@
         <a href="">MyPaint</a>
       </td>
       <td>
-        ?%
+        75%
       </td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@
         <a href="">MyRPG</a>
       </td>
       <td>
-        ?%
+        70%
       </td>
     </tr>
     <tr>
@@ -151,7 +151,7 @@
         <a href="">EPyTodo</a>
       </td>
       <td>
-        ?%
+        90%
       </td>
     </tr>
     <tr>
@@ -163,7 +163,7 @@
         <a href="">Popeye</a>
       </td>
       <td>
-        ?%
+        88.2%
       </td>
     </tr>
     <tr>
@@ -171,7 +171,7 @@
         <a href="">Chocolatine</a>
       </td>
       <td>
-        ?%
+        93.6%
       </td>
     </tr>
   </tbody>

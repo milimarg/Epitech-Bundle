@@ -1,0 +1,7 @@
+CREATE SCHEMA IF NOT EXISTS paul;
+
+CREATE TABLE IF NOT EXISTS paul.users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+);

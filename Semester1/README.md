@@ -102,7 +102,7 @@
         <a href="">MyHunter</a>
       </td>
       <td>
-        ?%
+        53%
       </td>
     </tr>
     <tr>
@@ -110,7 +110,7 @@
         <a href="">MyRadar</a>
       </td>
       <td>
-        ?%
+        0% (SEGV)
       </td>
     </tr>
     <tr>

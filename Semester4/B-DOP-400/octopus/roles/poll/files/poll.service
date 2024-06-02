@@ -1,0 +1,9 @@
+[Unit]
+Description=Poll
+
+[Service]
+User=poll
+WorkingDirectory=/opt/poll
+ExecStart="/opt/poll/run.sh"
+Restart=always
+Environment="REDIS_HOST=172.20.10.5" # TODO: variable embed wasn't working

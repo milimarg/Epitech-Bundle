@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+from parsing import parse
+from formula import (calculate_variance,
+                     calculate_95_confidence,
+                     calculate_98_confidence,
+                     clamp)
+
+parsing = parse()
+
+variance = calculate_variance(parsing[2], parsing[1], parsing[0])
+_95_conf = calculate_95_confidence(variance) * 100 / 2
+_98_conf = calculate_98_confidence(variance) * 100 / 2
+
+print(f"Population size:\t{parsing[0]}")
+print(f"Sample size:\t\t{parsing[1]}")
+print(f"Voting intentions:\t{parsing[2]:.2f}%")
+print(f"Variance:\t\t{variance:.6f}")
+print(f"95% confidence interval: [{(clamp(parsing[2] - _95_conf)):.2f}%; {(clamp(parsing[2] + _95_conf)):.2f}%]")
+print(f"99% confidence interval: [{(clamp(parsing[2] - _98_conf)):.2f}%; {(clamp(parsing[2] + _98_conf)):.2f}%]")

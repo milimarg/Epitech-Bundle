@@ -1,0 +1,11 @@
+.idea
+*.out
+*.so
+*.o
+*.log
+unit_tests
+test
+*.html
+*.css
+*.gcda
+*.gcno

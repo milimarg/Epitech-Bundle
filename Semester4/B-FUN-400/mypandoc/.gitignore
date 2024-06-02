@@ -1,0 +1,10 @@
+.stack-work/
+*~
+examples
+mypandoc
+coding-style-reports.log
+*.json
+*.xml
+.idea
+*.md
+mypandoc.cabal

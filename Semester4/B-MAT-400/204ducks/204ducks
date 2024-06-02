@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+import time
+from math import ceil
+
+from parsing import parsing
+from formula import (run_formula, calculate_when_do_ducks_come_back, calculate_average_return_time,
+                     calculate_standard_deviation)
+from time import strftime
+
+a = parsing()
+
+start = 0
+end = 1
+end_2 = 2
+
+average_return_time = calculate_average_return_time(a)
+
+average_formated_minutes = int(average_return_time)
+average_formated_seconds = ceil((average_return_time - average_formated_minutes) * 60)
+
+standard_deviation = calculate_standard_deviation(a, average_return_time, start)
+
+date1 = strftime("%-Mm %Ss", time.gmtime(calculate_when_do_ducks_come_back(a, 0.5, start)))
+date2 = strftime("%-Mm %Ss", time.gmtime(calculate_when_do_ducks_come_back(a, 0.99, start)))
+
+ducks_after_1_minute = (run_formula(a, 1, 0) - run_formula(a, 0, 0)) * 100
+ducks_after_2_minutes = (run_formula(a, 2, 0) - run_formula(a, 0, 0)) * 100
+
+print(f"Average return time: {average_formated_minutes}m {average_formated_seconds}s")
+print(f"Standard deviation: {standard_deviation:.3f}")
+print(f"Time after which 50% of the ducks are back: {date1}")
+print(f"Time after which 99% of the ducks are back: {date2}")
+print(f"Percentage of ducks back after 1 minute: {ducks_after_1_minute:.1f}%")
+print(f"Percentage of ducks back after 2 minutes: {ducks_after_2_minutes:.1f}%")

@@ -1,0 +1,6 @@
+.idea
+*.o
+*.out
+*.log
+Bootstrap_Panoramix
+panoramix

@@ -1,0 +1,21 @@
+[base]
+"{{ poll_ip }}" ansible_ssh_user="{{ poll_user }}" ansible_become_pass="{{ poll_pass }}"
+"{{ result_ip }}" ansible_ssh_user="{{ result_user }}" ansible_become_pass="{{ result_pass }}"
+"{{ redis_ip }}" ansible_ssh_user="{{ redis_user }}" ansible_become_pass="{{ redis_pass }}"
+"{{ postgresql_ip }}" ansible_ssh_user="{{ postgresql_user }}" ansible_become_pass="{{ postgresql_pass }}"
+#"{{ worker_ip }}" ansible_ssh_user="{{ worker_user }}" ansible_become_pass="{{ worker_pass }}"
+
+[poll]
+"{{ poll_ip }}" ansible_ssh_user="{{ poll_user }}" ansible_ssh_pass="azerty" ansible_become_pass="{{ poll_pass }}"
+
+[result]
+"{{ result_ip }}" ansible_ssh_user="{{ result_user }}" ansible_become_pass="{{ result_pass }}"
+
+[redis]
+"{{ redis_ip }}" ansible_ssh_user="{{ redis_user }}" ansible_become_pass="{{ redis_pass }}"
+
+[postgresql]
+"{{ postgresql_ip }}" ansible_ssh_user="{{ postgresql_user }}" ansible_become_pass="{{ postgresql_pass }}"
+
+[worker]
+#"{{ worker_ip }}" ansible_ssh_user="{{ worker_user }}" ansible_become_pass="{{ worker_pass }}"

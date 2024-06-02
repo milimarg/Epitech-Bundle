@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+from correlation import compute_correlation
+from parsing import get_parsing
+from fit1 import fit1, root_mean_square, population_in_2050
+from fit2 import fit2
+
+countries = get_parsing()
+
+print("Country: ", end='')
+for country in countries:
+    print(f"{country.name}", end='')
+    if countries.index(country) != len(countries) - 1:
+        print(", ", end='')
+    else:
+        print("")
+
+unit = 1000000
+
+a1, b1 = fit1(countries)
+print(f"\tY = {(a1 / unit):.2f} ", end='')
+print(f"X {'-' if b1 < 0 else '+'} {abs(b1 / unit):.2f}")
+
+rms1 = root_mean_square(countries, a1, b1, True)
+print(f"\tRoot-mean-square deviation: {(rms1 / unit):.2f}")
+
+pop_in_2050 = population_in_2050(a1, b1, True)
+print(f"\tPopulation in 2050: {(pop_in_2050 / unit):.2f}")
+
+a2, b2 = fit2(countries)
+print(f"\tX = {(a2 * unit):.2f} ", end='')
+print(f"Y {'-' if b2 < 0 else '+'} {abs(b2):.2f}")
+
+rms2 = root_mean_square(countries, a2, b2, False)
+print(f"\tRoot-mean-square deviation: {(rms2 / unit):.2f}")
+
+pop_in_2050 = population_in_2050(a2, b2, False)
+print(f"\tPopulation in 2050: {(pop_in_2050 / unit):.2f}")
+
+correlation = compute_correlation(countries, a1, b1, rms1, a2, b2, rms2)
+print(f"Correlation: {correlation:.4f}")

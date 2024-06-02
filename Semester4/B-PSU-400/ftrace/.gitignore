@@ -1,0 +1,8 @@
+*.txt
+*.out
+*.o
+vgcore.*
+coding*
+ftrace
+test.c
+.idea

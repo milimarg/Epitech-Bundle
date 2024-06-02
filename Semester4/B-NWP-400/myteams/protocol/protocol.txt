@@ -1,0 +1,313 @@
+EPITECH - myteams - Protocol
+
+Command-Reply sequences
+
+-> : Request command from client to server
+<- : Reply from server to client
+«- : Passive message from the server
+
+                <- 301 (ALREADY_LOGGED_IN)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 305 (UNKNOWN_THREAD)
+                <- 306 (UNKNOWN_USER)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 308 (ALREADY_EXIST)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+            Connection (000)
+                «- 001 (CONNECTED)
+
+                «- 002 (DISCONNECTED)
+
+              /login ->
+                <- 003 (LOGIN)
+                <- 301 (ALREADY_LOGGED_IN)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /logout ->
+                <- 004 (LOGOUT)
+                <- 302 (NOT_LOGGED_IN)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /help ->
+                <- 005 (HELP)
+                <- 302 (NOT_LOGGED_IN)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 308 (ALREADY_EXIST)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+
+
+            User - event (100)
+              /send ->
+                «- 101 (MESSAGE_SENT)
+                <- 302 (NOT_LOGGED_IN)
+                <- 306 (UNKNOWN_USER)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+                «- 102 (MESSAGE_RECEIVED)
+
+              /create (reply)
+                «- 103 (THREAD_SENT)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 305 (UNKNOWN_THREAD)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+                «- 104 (THREAD_RECEIVED)
+
+              /create (team)
+                «- 105 (TEAM_CREATED)
+                <- 302 (NOT_LOGGED_IN)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /create (channel)
+                «- 106 (CHANNEL_CREATED)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /create (thread)
+                «- 107 (THREAD_CREATED)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+
+
+            User - server response (200)
+              /subscribe ->
+                <- 201 (SUBSCRIBED)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /unsubscribe ->
+                <- 202 (UNSUBSCRIBED)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /create (team) ->
+                <- 203 (TEAM_CREATED_SUCCESSFULLY)
+                <- 302 (NOT_LOGGED_IN)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /create (channel) ->
+                <- 204 (CHANNEL_CREATED_SUCCESSFULLY)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /create (thread) ->
+                <- 205 (THREAD_CREATED_SUCCESSFULLY)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /create (reply) ->
+                <- 206 (REPLY_CREATED_SUCCESSFULLY)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 305 (UNKNOWN_THREAD)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /user ->
+                <- 207 (USER_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 306 (UNKNOWN_USER)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /list (users) ->
+              /users ->
+                <- 208 (USERS_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 306 (UNKNOWN_USER)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /info (team) ->
+                <- 209 (TEAM_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /list (teams) ->
+                <- 210 (TEAMS_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /info (channel) ->
+                <- 211 (CHANNEL_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /list (channels) ->
+                <- 212 (CHANNELS_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /info (thread) ->
+                <- 213 (THREAD_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 305 (UNKNOWN_THREAD)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /list (threads) ->
+                <- 214 (THREADS_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 305 (UNKNOWN_THREAD)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /list (replies) ->
+                <- 215 (REPLIES_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 305 (UNKNOWN_THREAD)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+              /messages ->
+                <- 216 (MESSAGES_INFO)
+                <- 302 (NOT_LOGGED_IN)
+                <- 303 (UNKNOWN_TEAM)
+                <- 304 (UNKNOWN_CHANNEL)
+                <- 305 (UNKNOWN_THREAD)
+                <- 307 (ERROR_UNAUTHORIZED)
+                <- 309 (ERROR_MESSAGE)
+                <- 310 (SYNTAX_ERROR)
+                <- 311 (BAD_COMMAND)
+
+
+
+Numeric order list of replies:
+
+    000 connection / disconnection
+        001 connected
+        002 disconnected
+        003 login
+        004 logout
+        005 help
+
+    100 user event
+        101 message sent
+        102 message received
+        103 reply sent
+        104 reply received
+        105 team created
+        106 channel created
+        107 thread created
+
+    200 user response
+        201 subscribed
+        202 unsubscribed
+        203 team created successfully
+        204 channel created successfully
+        205 thread created successfully
+        206 reply created successfully
+        207 user info
+        208 list user info
+        209 team info
+        210 list teams info
+        211 channel info
+        212 list channels info
+        213 thread info
+        214 list threads info
+        215 list replies info
+        216 list messages
+
+    300 error messages
+        301 already logged in
+        302 not logged in
+        303 unknown team
+        304 unknown channel
+        305 unknown thread
+        306 unknown user
+        307 error unauthorized
+        308 already exist
+        309 error message
+        310 syntax error
+        311 bad command

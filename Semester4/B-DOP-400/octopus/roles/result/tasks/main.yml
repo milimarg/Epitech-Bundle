@@ -1,0 +1,39 @@
+- name: "Upload result"
+  unarchive:
+    src: ./result.tar
+    dest: /opt
+
+- name: "Install npm"
+  apt:
+    name: npm
+    state: present
+
+- name: "add variables to /opt/result/.env.result"
+  lineinfile:
+    path: /opt/result/.env.result
+    line: "{{ item.key }}={{ item.value }}"
+  with_dict:
+    POSTGRES_PASSWORD: "{{ postgresql_db_pass }}"
+    POSTGRES_HOST: "{{ postgresql_ip }}"
+    POSTGRES_PORT: "{{ postgresql_port }}"
+    POSTGRES_DB: "{{ postgresql_db }}"
+    POSTGRES_USER: "{{ postgresql_db }}"
+
+- name: "Copy run script"
+  copy:
+    src: ../files/run.sh
+    dest: /opt/result
+    mode: 0777
+    owner: florent
+
+- name: "Copy service file"
+  copy:
+    src: ../files/result.service
+    dest: /etc/systemd/system/result.service
+    mode: 0644
+    owner: florent
+
+- name: "Restart result"
+  service:
+    name: result.service
+    state: restarted

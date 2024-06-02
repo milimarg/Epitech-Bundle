@@ -1,0 +1,15 @@
+- name: "Upload worker"
+  unarchive:
+    src: ./worker.tar
+    dest: /opt
+
+- name: "Install dependencies"
+  apt:
+    name:
+      - openjdk-17-jdk
+      - maven
+    state: present
+
+#Builds the worker.
+
+#Runs the worker.

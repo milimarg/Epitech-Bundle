@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+
+from sys import argv
+from formula import run_iq_calculator
+
+
+def help():
+    print("USAGE")
+    print("\t./205IQ u s [IQ1] [IQ2]")
+    print("\nDESCRIPTION")
+    print("\tu\tmean")
+    print("\ts\tstandard deviation")
+    print("\tIQ1\tminimum IQ")
+    print("\tIQ2\tmaximum IQ")
+
+
+def error_handling(liste):
+    if liste[0] < 0 or liste[0] > 200:
+        help()
+        exit(84)
+    if len(liste) == 3:
+        if liste[2] > 200 or liste[2] < 0:
+            help()
+            exit(84)
+    if len(liste) == 4:
+        if liste[3] > 200 or liste[3] < 0 or liste[3] < liste[2]:
+            help()
+            exit(84)
+
+
+def launch(liste):
+    if len(liste) == 2:
+        run_iq_calculator(liste, 0, 200)
+    if len(liste) == 3:
+        run_iq_calculator(liste, 0, liste[2])
+    if len(liste) == 4:
+        run_iq_calculator(liste, liste[2], liste[3])
+
+
+def main():
+    arglen = len(argv)
+    if arglen == 2 and argv[1] == "-h":
+        help()
+        exit(0)
+    if arglen > 5 or arglen < 3:
+        help()
+        exit(84)
+    try:
+        liste = [float(argv[1]), float(argv[2])]
+        if arglen >= 4:
+            liste.append(float(argv[3]))
+        if arglen >= 5:
+            liste.append(float(argv[4]))
+        error_handling(liste)
+        launch(liste)
+    except ValueError:
+        help()
+        exit(84)
+
+
+main()
