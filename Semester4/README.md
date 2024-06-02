@@ -24,7 +24,7 @@
     </tr>
     <tr>
       <td rowspan="3">
-        <a href="./B-OOP-400">B-OOP-400</a>
+        <a href="">B-OOP-400</a>
       </td>
       <td rowspan="3">6 credits</td>
       <td>
