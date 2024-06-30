@@ -1,3 +1,3 @@
-# Epitech-Bundle- Semester 1
+# Epitech Bundle
 
 All Epitech projects I've done in Tek1 and Tek2.

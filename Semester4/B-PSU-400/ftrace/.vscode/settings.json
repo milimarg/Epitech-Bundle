@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "diff": "plaintext",
-        "syscall.h": "c",
-        "ftrace.h": "c"
-    }
-}

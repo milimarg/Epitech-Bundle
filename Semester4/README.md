@@ -216,10 +216,10 @@
       </td>
       <td rowspan="1">5 credits</td>
       <td>
-        <a href="./B-YEP-400">Zappy</a>
+        <a href="https://github.com/milimarg/Zappy">Zappy</a>
       </td>
       <td>
-        ?%
+        92.5%
       </td>
     </tr>
   </tbody>
