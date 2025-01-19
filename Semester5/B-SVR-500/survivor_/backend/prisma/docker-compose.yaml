@@ -1,0 +1,12 @@
+services:
+  database:
+    image: postgres
+    env_file: '../.env'
+    ports:
+      - "4040:5432"
+    environment:
+      POSTGRES_USER: soul
+      POSTGRES_PASSWORD: azerty
+      POSTGRES_DB: prismadb
+    volumes:
+      - ./data:/var/lib/postgresql/data

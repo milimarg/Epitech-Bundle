@@ -1,0 +1,12 @@
+.input-field {
+  margin: 10px 0;
+}
+
+.input-field .MuiFormControl-root {
+  width: 100%;
+}
+
+.input-field .MuiFormHelperText-root {
+  font-size: 0.85rem;
+  color: gray;
+}

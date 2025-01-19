@@ -1,0 +1,12 @@
+.text-area {
+  margin: 10px 0;
+}
+
+.text-area .MuiFormControl-root {
+  width: 100%;
+}
+
+.text-area .MuiFormHelperText-root {
+  font-size: 0.85rem;
+  color: gray;
+}

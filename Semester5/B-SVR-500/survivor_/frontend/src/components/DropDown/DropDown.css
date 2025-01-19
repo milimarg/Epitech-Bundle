@@ -1,0 +1,9 @@
+.dropdown {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.dropdown .MuiFormHelperText-root {
+  font-size: 0.85rem;
+  color: gray;
+}

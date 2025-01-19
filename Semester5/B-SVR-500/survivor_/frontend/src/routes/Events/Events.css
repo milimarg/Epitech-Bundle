@@ -1,0 +1,39 @@
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-block-card-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.map-block {
+  display: flex;
+  height: 800px;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-details input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.event-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.event-details ul li {
+  padding: 5px 0;
+}

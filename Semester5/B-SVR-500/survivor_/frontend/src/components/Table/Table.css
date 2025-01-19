@@ -1,0 +1,35 @@
+.table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: rgb(196, 196, 196) 1px solid;
+  background-color: white;
+}
+
+.table-content {
+  background-color: white;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+}
+
+.table-header-cell {
+  padding: 8px 16px;
+  font-weight: bold;
+}
+
+.table-header-cell:first-child {
+  padding-left: 24px;
+}
+
+.MuiTableCell-root {
+  border-bottom: 1px solid #ddd;
+}
+
+.MuiTableCell-root:first-child {
+  padding-left: 16px;
+}
+
+.table-body-cell {
+  padding: 16px;
+}

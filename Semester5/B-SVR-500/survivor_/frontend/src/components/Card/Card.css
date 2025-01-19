@@ -1,0 +1,20 @@
+.card {
+  margin: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card .MuiTypography-h5 {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card .MuiCardContent-root {
+  padding: 16px;
+}
+
+.card .MuiCardActions-root {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,25 @@
+.multi-select-dropdown {
+  margin: 10px 0;
+}
+
+.multi-select-dropdown .MuiFormControl-root {
+  width: 100%;
+}
+
+.multi-select-dropdown .MuiFormHelperText-root {
+  font-size: 0.85rem;
+  color: gray;
+}
+
+.selected-values {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.selected-value {
+  background-color: #e0e0e0;
+  border-radius: 16px;
+  padding: 4px 8px;
+  margin: 2px;
+  display: inline-block;
+}

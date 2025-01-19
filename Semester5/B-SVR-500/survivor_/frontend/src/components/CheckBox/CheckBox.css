@@ -1,0 +1,13 @@
+.checkbox-container {
+  margin: 10px 0;
+}
+
+.checkbox-container .helper-text {
+  font-size: 0.85rem;
+  color: gray;
+}
+
+.checkbox-container .error-text {
+  font-size: 0.85rem;
+  color: red;
+}

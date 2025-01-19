@@ -1,0 +1,22 @@
+.navbar-wrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 2rem;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 1rem;
+}

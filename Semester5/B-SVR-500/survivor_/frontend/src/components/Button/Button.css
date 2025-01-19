@@ -1,0 +1,22 @@
+.button-container button{
+  margin:   0;
+  color: black;
+  font-weight: bold;
+}
+
+.button-container.fullWidth {
+  width: 100%;
+}
+
+.custom-button {
+  position: relative;
+}
+
+.button-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  z-index: 1;
+}

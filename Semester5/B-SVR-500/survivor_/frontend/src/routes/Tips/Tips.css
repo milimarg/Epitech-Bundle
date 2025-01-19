@@ -1,0 +1,18 @@
+.tips-cards {
+  margin: 0 auto;
+  width: 80%;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: rgb(196, 196, 196) 1px solid;
+}
+
+.accordion-summary {
+  font-weight: bold;
+  border-top: rgb(196, 196, 196) 1px solid;
+}
+
+.accordion-details {
+  display: flex;
+  align-items: center;
+  border-bottom: rgb(196, 196, 196) 1px solid;
+}

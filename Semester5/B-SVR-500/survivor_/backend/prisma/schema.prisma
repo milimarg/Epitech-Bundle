@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Credential {
+  email    String @unique
+  password String
+  token    String
+}
+
+model Payment {
+  id              Int    @id @default(autoincrement())
+  customer_id     Int
+  date            String
+  payment_method  String
+  amount          Int
+  comment         String
+}
+
+model Clothe {
+  id          Int      @id @default(autoincrement())
+  customer_id Int
+  type        String
+  source      String?
+}
+
+model Customer {
+  id                Int    @id @default(autoincrement())
+  email             String @unique
+  name              String
+  surname           String
+  birth_date        String
+  gender            String
+  description       String
+  astrological_sign String
+  phone_number      String
+  address           String
+  image             String?
+  unix_time         Int
+}
+
+model Employee {
+  id                 Int    @id @default(autoincrement())
+  email              String @unique
+  name               String
+  surname            String
+  birth_date         String
+  gender             String
+  work               String
+  image              String?
+  unix_time          Int
+  assigned_customers Int[]
+}
+
+model Encounter {
+  id          Int    @id @default(autoincrement())
+  customer_id Int
+  date        String
+  rating      Int
+  comment     String
+  source      String
+}
+
+model Comment {
+  id          Int    @id @default(autoincrement())
+  customer_id Int
+  event_id    Int
+  message     String
+}
+
+model Event {
+  id               Int    @id @default(autoincrement())
+  name             String
+  date             String
+  max_participants Int
+  location_x       String
+  location_y       String
+  type             String
+  employee_id      Int
+  location_name    String
+  id_subscribed    Int[]
+  id_waiting       Int[]
+  status           String
+}
+
+model Tip {
+  id    Int    @id @default(autoincrement())
+  title String
+  tip   String
+}

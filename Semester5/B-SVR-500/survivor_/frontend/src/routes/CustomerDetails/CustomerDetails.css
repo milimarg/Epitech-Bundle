@@ -1,0 +1,53 @@
+.customer-details-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  gap: 30px;
+}
+
+.header-button-container {
+  position: absolute;
+  top: 6rem;
+  right: 16px;
+}
+
+.customer-card {
+  width: 25%;
+  padding: 20px;
+  height: auto;
+}
+
+.customer-counters {
+  padding-top: 10px;
+}
+
+.customer-tables {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.customer-table-card {
+  width: 100%;
+  padding: 20px;
+}
+
+.divider-fullwidth {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}
