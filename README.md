@@ -1,3 +1,3 @@
 # Epitech Bundle
 
-All Epitech projects I've done in Tek1 and Tek2.
+All Epitech projects I've done from TEK1 to TEK3.

@@ -1,6 +1,4 @@
-# Epitech - Semester 3
-
-This semester is mostly composed of the 2nd year's internship.
+# Epitech - Semester 5
 
 <table>
   <thead style="font-size: 1rem">
@@ -14,11 +12,11 @@ This semester is mostly composed of the 2nd year's internship.
   <tbody style="font-size: 1rem; text-align: center">
     <tr>
       <td rowspan="1">
-        <a href="./B-PDG-300">B-PDG-300</a>
+        <a href="./B-SVR-500">B-SVR-500</a>
       </td>
-      <td rowspan="1">5 credits</td>
+      <td rowspan="1">4 credits</td>
       <td>
-        <a href="./B-PDG-300">Paradigms Seminar</a>
+        <a href="./B-PDG-300">Survivor Seminar</a>
       </td>
     </tr>
   </tbody>
