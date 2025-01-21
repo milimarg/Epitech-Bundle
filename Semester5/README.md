@@ -74,7 +74,7 @@
         <a href="https://github.com/milimarg/glados">GLaDOS</a>
       </td>
       <td>
-        ?%
+        100%
       </td>
     </tr>
   </tbody>
