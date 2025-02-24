@@ -69,7 +69,7 @@
       <td rowspan="1">
         B-FUN-500
       </td>
-      <td rowspan="1">7 credits</td>
+      <td rowspan="1">9 credits</td>
       <td>
         <a href="https://github.com/milimarg/glados">GLaDOS</a>
       </td>
